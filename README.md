@@ -116,4 +116,4 @@ Para rodar o projeto completo, você precisará de dois terminais: um para o Bac
 
 ### Melhorias
 
-Melhorar a segurança do aplicativo, adicionar JWT e Refresh Token e um enviroment privado para dados da API.
+Melhorar a segurança do aplicativo, adicionar JWT e Refresh Token e um environment privado para dados da API.
