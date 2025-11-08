@@ -109,6 +109,8 @@ Para rodar o projeto completo, você precisará de dois terminais: um para o Bac
 9.  Vá para a tela de **Perfil** e verifique se os dados do usuário (puxados do endpoint `/api/Auth/me`) estão corretos.
 10. Faça **Logout** e feche o app. Ao reabrir, verifique se ele pede o login novamente (testando a persistência de sessão).
 
+Caso queira testar direto pelo Insomnia, disponibilizei o arquivo .yaml para importação diretamente no Insomnia.
+
 ### 🔑 Usuário de Teste (Opcional)
   "email": "victor@areco.com",
   
