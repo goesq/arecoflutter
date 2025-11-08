@@ -1,6 +1,7 @@
 # ✅ Areco Tasks - Gerenciador de Tarefas (Flutter + .NET)
 
-Este projeto é um Sistema de Gerenciamento de Tarefas completo, construído com **Flutter** (Front-end Mobile) e **.NET 8 Web API** (Back-end), utilizando **SQLite** como banco de dados local.
+Este projeto é um Sistema de Gerenciamento de Tarefas completo, construído com **Flutter** (Front-end Mobile) e **.NET 8 Web API** (Back-end), utilizando **SQLite** como banco de dados local. 
+(Foi desenvolvido e testado totalmente por um emulador do Android Studio: Pixel 9 Pro XL)
 
 É um projeto ideal para avaliação de lógica de programação, arquitetura de software e integração entre um aplicativo móvel e uma API RESTful.
 
