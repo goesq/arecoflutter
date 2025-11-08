@@ -1,0 +1,271 @@
+type: collection.insomnia.rest/5.0
+name: Dotnet - Areco
+meta:
+  id: wrk_aa59f3dd3c474f63af77da7405ed8c50
+  created: 1762626211726
+  modified: 1762626211726
+  description: ""
+collection:
+  - name: Tasks
+    meta:
+      id: fld_22b3eb85ad4c4061a66447c251c443a9
+      created: 1762626628476
+      modified: 1762626628476
+      sortKey: -1762626628476
+      description: ""
+    children:
+      - url: http://localhost:5081/api/Tasks
+        name: GET Tasks
+        meta:
+          id: req_96af5413084643bf82226237e84704db
+          created: 1762626217599
+          modified: 1762626719017
+          isPrivate: false
+          description: ""
+          sortKey: -1762626633109
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5081/api/Tasks
+        name: POST Tasks
+        meta:
+          id: req_fa2ed7567245497d879a152815b97f97
+          created: 1762626597031
+          modified: 1762635789647
+          isPrivate: false
+          description: ""
+          sortKey: -1762626633009
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "codigo": "85266",
+              "observacao": "Teste",
+              "atendimento": "Online",
+              "dataInicio": "2025-11-08T18:24:48.974Z",
+              "dataFim": "2025-11-08T18:24:48.974Z",
+              "status": "A Realizar"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5081/api/Tasks/2
+        name: PUT Tasks
+        meta:
+          id: req_37cce49902ff4d70a3ef7e53ed87818b
+          created: 1762626614170
+          modified: 1762626788652
+          isPrivate: false
+          description: ""
+          sortKey: -1762626633209
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "codigo": "123",
+              "observacao": "Teste",
+              "atendimento": "Online",
+              "dataInicio": "2025-11-08T18:24:48.974Z",
+              "dataFim": "2025-11-08T18:24:48.974Z",
+              "status": "A Realizar"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5081/api/Tasks/8
+        name: DELETE  Tasks
+        meta:
+          id: req_b4be62bdd685404e9ccf4fc17abc471a
+          created: 1762626732328
+          modified: 1762637501572
+          isPrivate: false
+          description: ""
+          sortKey: -1762626732328
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Usuários
+    meta:
+      id: fld_5481d168960d4c9da20abe1036ea4474
+      created: 1762626821194
+      modified: 1762626821194
+      sortKey: -1762626821194
+      description: ""
+    children:
+      - url: http://localhost:5081/api/auth/login
+        name: Login
+        meta:
+          id: req_c7b750ece13b45b89acd008e2e3e0005
+          created: 1762626823928
+          modified: 1762630598401
+          isPrivate: false
+          description: ""
+          sortKey: -1762626823928
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "email": "victor@areco.com",
+              "password": "admin"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5081/api/auth/register
+        name: Cadastro
+        meta:
+          id: req_cb24e70936314cab8849e307878f58ff
+          created: 1762626839796
+          modified: 1762630858426
+          isPrivate: false
+          description: ""
+          sortKey: -1762626824028
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "nome": "Victor",
+              "email": "victor2@areco.com",
+              "password": "admin"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5081/api/Auth/me
+        name: Users
+        meta:
+          id: req_d65a7a4bb54248a4afcfa8449e4e839c
+          created: 1762626853847
+          modified: 1762638301595
+          isPrivate: false
+          description: ""
+          sortKey: -1762626824128
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "victor@areco.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5081/api/auth/users
+        name: GET Users
+        meta:
+          id: req_bc1dfda1ace7436cb11289696f95d4eb
+          created: 1762639826769
+          modified: 1762639856170
+          isPrivate: false
+          description: ""
+          sortKey: -1762626824228
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_3fe994bdc4e44cbb641777b4f77997c10c7edca3
+    created: 1762626211730
+    modified: 1762626211730
+environments:
+  name: Base Environment
+  meta:
+    id: env_3fe994bdc4e44cbb641777b4f77997c10c7edca3
+    created: 1762626211729
+    modified: 1762626211729
+    isPrivate: false
