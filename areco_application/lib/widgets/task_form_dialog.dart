@@ -4,7 +4,7 @@ import '../utils/date_utils.dart';
 
 class TaskFormDialog extends StatefulWidget {
   final TaskModel? task;
-  final Function(TaskModel) onSave;
+  final Future<void> Function(TaskModel) onSave;
 
   const TaskFormDialog({
     Key? key,
@@ -45,14 +45,47 @@ class _TaskFormDialogState extends State<TaskFormDialog> {
   @override
   void initState() {
     super.initState();
-    codigoController =
-        TextEditingController(text: widget.task?.codigo ?? '');
-    obsController =
-        TextEditingController(text: widget.task?.observacao ?? '');
+    codigoController = TextEditingController(text: widget.task?.codigo ?? '');
+    obsController = TextEditingController(text: widget.task?.observacao ?? '');
     dataInicio = widget.task?.dataInicio ?? DateTime.now();
     dataFim = widget.task?.dataFim ?? DateTime.now();
     status = widget.task?.status ?? 'A Realizar';
     atendimento = widget.task?.atendimento ?? 'Online';
+  }
+
+  void _showError(String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(msg),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
+  Future<void> _saveTask() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    if (dataInicio!.isAfter(dataFim!)) {
+      _showError('A data de início não pode ser maior que a data de fim.');
+      return;
+    }
+
+    final task = TaskModel(
+      id: widget.task?.id ?? DateTime.now().millisecondsSinceEpoch,
+      codigo: codigoController.text,
+      observacao: obsController.text,
+      dataInicio: dataInicio!,
+      dataFim: dataFim!,
+      status: status,
+      atendimento: atendimento,
+    );
+
+    try {
+      await widget.onSave(task);
+      if (mounted) Navigator.pop(context);
+    } catch (e) {
+      _showError(e.toString().replaceAll('Exception: ', ''));
+    }
   }
 
   @override
@@ -67,7 +100,7 @@ class _TaskFormDialogState extends State<TaskFormDialog> {
             children: [
               TextFormField(
                 controller: codigoController,
-                decoration: const InputDecoration(labelText: 'Código'),
+                decoration: const InputDecoration(labelText: 'Nome/Código'),
                 validator: (v) =>
                     v == null || v.isEmpty ? 'Informe o código' : null,
               ),
@@ -77,7 +110,6 @@ class _TaskFormDialogState extends State<TaskFormDialog> {
                 validator: (v) =>
                     v == null || v.isEmpty ? 'Informe a descrição' : null,
               ),
-
               const SizedBox(height: 12),
 
               DropdownButtonFormField(
@@ -150,22 +182,7 @@ class _TaskFormDialogState extends State<TaskFormDialog> {
             onPressed: () => Navigator.pop(context),
             child: const Text('Cancelar')),
         ElevatedButton(
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              widget.onSave(
-                TaskModel(
-                  id: widget.task?.id ?? DateTime.now().millisecondsSinceEpoch,
-                  codigo: codigoController.text,
-                  observacao: obsController.text,
-                  dataInicio: dataInicio!,
-                  dataFim: dataFim!,
-                  status: status,
-                  atendimento: atendimento,
-                ),
-              );
-              Navigator.pop(context);
-            }
-          },
+          onPressed: _saveTask,
           child: const Text('Salvar'),
         ),
       ],

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Areco.Api.props" />
+</Project>

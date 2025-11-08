@@ -16,4 +16,27 @@ class TaskModel {
     required this.status,
     required this.atendimento,
   });
+
+  factory TaskModel.fromJson(Map<String, dynamic> j) {
+    return TaskModel(
+      id: j['id'],
+      codigo: j['codigo'],
+      observacao: j['observacao'],
+      dataInicio: DateTime.parse(j['dataInicio']),
+      dataFim: DateTime.parse(j['dataFim']),
+      status: j['status'],
+      atendimento: j['atendimento'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'codigo': codigo,
+      'observacao': observacao,
+      'dataInicio': dataInicio.toIso8601String(),
+      'dataFim': dataFim.toIso8601String(),
+      'status': status,
+      'atendimento': atendimento,
+    };
+  }
 }

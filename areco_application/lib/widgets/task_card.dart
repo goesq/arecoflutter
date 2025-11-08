@@ -48,7 +48,7 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(minHeight: 120), // ✅ evita overflow
+      constraints: const BoxConstraints(minHeight: 120),
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
@@ -65,10 +65,9 @@ class TaskCard extends StatelessWidget {
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min, // ✅ Ajuda a ajustar a altura
+        mainAxisSize: MainAxisSize.min, // 
         children: [
 
-          /// Row superior: Código + Menu + Status Badge
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -80,7 +79,6 @@ class TaskCard extends StatelessWidget {
                 ),
               ),
 
-              /// Menu (3 pontinhos)
               PopupMenuButton(
                 icon: const Icon(Icons.more_vert, size: 22),
                 itemBuilder: (context) => [
@@ -98,7 +96,6 @@ class TaskCard extends StatelessWidget {
 
           const SizedBox(height: 6),
 
-          /// Descrição / Observação
           Text(
             task.observacao,
             maxLines: 2,
@@ -112,7 +109,6 @@ class TaskCard extends StatelessWidget {
 
           const SizedBox(height: 8),
 
-          /// Linha: Ícone + datas
           Row(
             children: [
               Icon(Icons.calendar_today, size: 14, color: Colors.grey.shade700),
@@ -129,7 +125,6 @@ class TaskCard extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-          /// Badge (Status)
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(

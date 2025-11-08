@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
 
-        /// ✅ Fonte global Montserrat
         textTheme: GoogleFonts.montserratTextTheme(),
 
         appBarTheme: const AppBarTheme(
@@ -30,10 +32,13 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      initialRoute: '/',
+      initialRoute: '/login',
+
       routes: {
-        '/': (context) => const LoginScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
         '/home': (context) => const HomeScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
