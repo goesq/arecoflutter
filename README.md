@@ -110,6 +110,7 @@ Para rodar o projeto completo, você precisará de dois terminais: um para o Bac
 
 ### 🔑 Usuário de Teste (Opcional)
   "email": "victor@areco.com",
+  
   "password": "admin"
 
 
